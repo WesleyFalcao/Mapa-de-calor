@@ -20,9 +20,9 @@ function api_get(req, res){
             res.write(JSON.stringify(filesNo))
             res.end()
       })
-} 
+}
 
-/**@description pega uma único elemento json e abre, primeiro pego o nome do arquivo da url, pego o diretório e abro ele */ 
+/**@description pega uma único elemento json e abre, primeiro pego o nome do arquivo da url, o diretório e abro ele */ 
 function api_id_get(req, res){
       const fileName = req.url.split("/")[2]
       const file = path.join(DATA_DIR, fileName) + ".json"
@@ -33,7 +33,7 @@ function api_id_get(req, res){
       })
 }
 
-function api_id_post(req,res){
+function api_id_post(req, res){
       const fileName = req.url.split("?name=")[1]
       const file = path.join(DATA_DIR, fileName) + ".json"
       /**@description vai armazenar os dados que vão ser escritos aqui no servidor */
@@ -66,7 +66,7 @@ function handleServer(req, res){
             api_id_post(req, res)
       } 
       else{
-            res.end()
+            res.end("Sem rota")
       }
 }
 
